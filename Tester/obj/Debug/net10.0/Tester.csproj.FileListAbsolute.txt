@@ -1,0 +1,14 @@
+/home/salt/Documents/aspire-test/Tester/bin/Debug/net10.0/Tester
+/home/salt/Documents/aspire-test/Tester/bin/Debug/net10.0/Tester.deps.json
+/home/salt/Documents/aspire-test/Tester/bin/Debug/net10.0/Tester.runtimeconfig.json
+/home/salt/Documents/aspire-test/Tester/bin/Debug/net10.0/Tester.dll
+/home/salt/Documents/aspire-test/Tester/bin/Debug/net10.0/Tester.pdb
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/Tester.GeneratedMSBuildEditorConfig.editorconfig
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/Tester.AssemblyInfoInputs.cache
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/Tester.AssemblyInfo.cs
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/Tester.csproj.CoreCompileInputs.cache
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/Tester.dll
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/refint/Tester.dll
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/Tester.pdb
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/Tester.genruntimeconfig.cache
+/home/salt/Documents/aspire-test/Tester/obj/Debug/net10.0/ref/Tester.dll
