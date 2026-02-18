@@ -1,15 +1,12 @@
 <Project Sdk="Aspire.AppHost.Sdk/13.1.1">
 
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net10.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <UserSecretsId>8fb3d0a3-5fc6-4940-87eb-e4bd655dfaea</UserSecretsId>
-    </PropertyGroup>
-    
-    <ItemGroup>
-        <ProjectReference Include="../Tester/Tester.csproj"/>
-    </ItemGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <UserSecretsId>8fb3d0a3-5fc6-4940-87eb-e4bd655dfaea</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Tester/Tester.csproj"/>
+  </ItemGroup>
 
 </Project>
