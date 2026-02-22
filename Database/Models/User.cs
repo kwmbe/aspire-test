@@ -8,5 +8,5 @@ public class User
 {
     [Key]
     public Guid Id { get; private set; } = Helper.CreateCryptographicallySecureRandomRFC4122Guid();
-    public required string Password { get; set; }
+    public required string Password { get; init; }
 }
