@@ -2,11 +2,11 @@ using Projects;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-builder.AddSqlServer("sql")
-    .WithDataVolume("data")
-    .WithLifetime(ContainerLifetime.Persistent)
+var sql = builder.AddSqlServer("sql")
     .AddDatabase("sqldb");
 
-builder.AddProject<Tester>("tester");
+builder.AddProject<Api>("api")
+    .WithReference(sql)
+    .WaitFor(sql);
 
 builder.Build().Run();

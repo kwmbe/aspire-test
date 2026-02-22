@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <UserSecretsId>8fb3d0a3-5fc6-4940-87eb-e4bd655dfaea</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../Tester/Tester.csproj"/>
+    <ProjectReference Include="../Api/Api.csproj"/>
   </ItemGroup>
 
 </Project>
