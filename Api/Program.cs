@@ -21,7 +21,7 @@ if (app.Environment.IsDevelopment())
         {
             context.Users.Add(new User
             {
-                Password = "123456",
+                Key = "123456",
             });
             context.SaveChanges();
         }
