@@ -14,24 +14,44 @@ if (app.Environment.IsDevelopment())
 
     using (var scope = app.Services.CreateScope())
     {
-        var context = scope.ServiceProvider.GetRequiredService<Context>();
-        context.Database.EnsureCreated();
-
-        if(!context.Users.Any())
-        {
-            context.Users.Add(new User
-            {
-                Key = "123456",
-            });
-            context.SaveChanges();
-        }
-
+        scope.ServiceProvider
+            .GetRequiredService<Context>()
+            .Database
+            .EnsureCreated();
     }
 }
 
 app.UseHttpsRedirection();
 
-app.MapGet("/health", Results.NoContent)
+app.MapGet("health", Results.NoContent)
     .WithName("HealthCheck");
+
+var user = app.MapGroup("user");
+
+user.MapPost("add", async (HttpContext httpContext, CancellationToken cancellationToken) =>
+{
+    using var reader = new StreamReader(httpContext.Request.Body);
+    var key = await reader
+        .ReadToEndAsync(cancellationToken)
+        .ConfigureAwait(false);
+
+    ArgumentNullException.ThrowIfNull(key);
+
+    using var scope = app.Services.CreateScope();
+
+    var dbContext = scope.ServiceProvider.GetRequiredService<Context>();
+
+    await dbContext.Database
+        .EnsureCreatedAsync(cancellationToken)
+        .ConfigureAwait(false);
+
+    dbContext.Users.Add(new User { Key = key });
+
+    await dbContext
+        .SaveChangesAsync(cancellationToken)
+        .ConfigureAwait(false);
+
+    return Results.Created();
+});
 
 app.Run();

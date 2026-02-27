@@ -1,6 +1,13 @@
 @Api_HostAddress = http://localhost:5142
 
 GET {{Api_HostAddress}}/health/
-Accept: application/json
+
+###
+
+POST {{Api_HostAddress}}/user/add
+Accept: application/text
+Content-Type: application/text
+
+PUBLIC-KEY
 
 ###
