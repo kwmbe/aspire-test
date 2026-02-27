@@ -45,13 +45,16 @@ user.MapPost("add", async (HttpContext httpContext, CancellationToken cancellati
         .EnsureCreatedAsync(cancellationToken)
         .ConfigureAwait(false);
 
-    dbContext.Users.Add(new User { Key = key });
+    var user = new User { Key = key };
+
+    dbContext.Users.Add(user);
 
     await dbContext
         .SaveChangesAsync(cancellationToken)
         .ConfigureAwait(false);
 
-    return Results.Created();
-});
+    return Results.Created($"{app.Urls.First()}/user/{user.Id}", user);
+})
+.WithName("AddUser");
 
 app.Run();
