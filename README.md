@@ -13,7 +13,7 @@ security concerns.
 
 ## Running the project
 
-1. Make sure Docker and dotnet are installed and the daemon is running, since aspire uses
+1. Make sure Docker and dotnet are installed, and the Docker daemon is running, since aspire uses
 docker to host different parts of the application.
 2. That's all. Press `F5` to run the project, this should open a webpage.
 
