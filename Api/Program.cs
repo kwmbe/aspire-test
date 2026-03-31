@@ -1,5 +1,5 @@
 using Database.Infrastructure;
-using Database.Models;
+using Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddSqlServerDbContext<Context>("sqldb");
@@ -28,33 +28,7 @@ app.MapGet("health", Results.NoContent)
 
 var user = app.MapGroup("user");
 
-user.MapPost("add", async (HttpContext httpContext, CancellationToken cancellationToken) =>
-{
-    using var reader = new StreamReader(httpContext.Request.Body);
-    var key = await reader
-        .ReadToEndAsync(cancellationToken)
-        .ConfigureAwait(false);
-
-    ArgumentNullException.ThrowIfNull(key);
-
-    using var scope = app.Services.CreateScope();
-
-    var dbContext = scope.ServiceProvider.GetRequiredService<Context>();
-
-    await dbContext.Database
-        .EnsureCreatedAsync(cancellationToken)
-        .ConfigureAwait(false);
-
-    var user = new User { Key = key };
-
-    dbContext.Users.Add(user);
-
-    await dbContext
-        .SaveChangesAsync(cancellationToken)
-        .ConfigureAwait(false);
-
-    return Results.Created($"{app.Urls.First()}/user/{user.Id}", user);
-})
-.WithName("AddUser");
+user.MapPost("add", UserEndpoints.AddUser)
+    .WithName("AddUser");
 
 app.Run();
